@@ -12,7 +12,7 @@ import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
 public class StartServiceAggregator {
 
 	public static void main(String[] args) {
-		String restAddress = "http://localhost:8086/";
+		String restAddress = "http://0.0.0.0:8086/";
 		String soapAddress = "http://localhost:8096/aggregator";
 		startRest(restAddress);
 		startSoap(soapAddress);

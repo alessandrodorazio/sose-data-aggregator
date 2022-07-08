@@ -57,8 +57,9 @@ public class DataAggregator {
 				 int localScore = Integer.parseInt(match.getElementsByTagName("localTeamScore").item(0).getTextContent());
 				 int visitorScore = Integer.parseInt(match.getElementsByTagName("visitorTeamScore").item(0).getTextContent());
 				 Element weather = (Element) element.getElementsByTagName("weather").item(0);
+				 String coordinates = match.getElementsByTagName("coordinates").item(0).getTextContent();
 				 MatchWithWeather mw = new MatchWithWeather(); // create match with weather 
-				 mw.setMatch(new Match(getTeamFromElement(localTeam), localScore, getTeamFromElement(visitorTeam), visitorScore));
+				 mw.setMatch(new Match(getTeamFromElement(localTeam), localScore, getTeamFromElement(visitorTeam), visitorScore,coordinates));
 				 mw.setWeather(getWeatherFromElement(weather));
 				 arrayMatchWeather.add(mw);
 				 
@@ -115,7 +116,8 @@ public class DataAggregator {
 	private static Bet getBetFromElement(Element element) {
 		double localTeamQuote = Double.parseDouble(element.getElementsByTagName("localTeamQuote").item(0).getTextContent());
 		double visitorTeamQuote = Double.parseDouble(element.getElementsByTagName("visitorTeamQuote").item(0).getTextContent());
-		return new Bet(localTeamQuote, visitorTeamQuote);
+		double tieQuote = Double.parseDouble(element.getElementsByTagName("tieQuote").item(0).getTextContent());
+		return new Bet(localTeamQuote, visitorTeamQuote, tieQuote);
 	}
 	
 	// create weather object from XML element
