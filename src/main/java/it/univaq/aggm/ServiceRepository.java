@@ -19,8 +19,7 @@ import org.xml.sax.SAXException;
 @WebService(endpointInterface="it.univaq.aggm.ServiceRepositoryInterface")
 public class ServiceRepository implements ServiceRepositoryInterface {
 	
-	@GET
-	@Path("/get-complete-matches")
+	@GET @Path("/get-complete-matches")
 	public ArrayList<CompleteMatch> matchesWithWeather() throws IOException, ParserConfigurationException, SAXException {
 		return DataAggregator.getMatchesWithAllData();
 	}

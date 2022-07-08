@@ -7,6 +7,15 @@ public class MatchWithWeather {
 	private Match match;
 	private Weather weather;
 	
+	public MatchWithWeather() {
+		
+	}
+	
+	public MatchWithWeather(Match match, Weather weather) {
+		this.match = match;
+		this.weather = weather;
+	}
+	
 	public Match getMatch() {
 		return match;
 	}

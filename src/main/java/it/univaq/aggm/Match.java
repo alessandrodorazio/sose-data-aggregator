@@ -10,6 +10,30 @@ public class Match {
 	private int visitorScore;
 	private String coordinates;
 	
+	public Match() {
+		
+	}
+	
+	public Match(Team localTeam, Team visitorTeam) {
+		this.localTeam = localTeam;
+		this.visitorTeam = visitorTeam;
+	}
+	
+	public Match(Team localTeam, int localScore, Team visitorTeam, int visitorScore) {
+		this.localTeam = localTeam;
+		this.localScore = localScore;
+		this.visitorTeam = visitorTeam;
+		this.visitorScore = visitorScore;
+	}
+	
+	public Match(Team localTeam, int localScore, Team visitorTeam, int visitorScore, String coordinates) {
+		this.localTeam = localTeam;
+		this.localScore = localScore;
+		this.visitorTeam = visitorTeam;
+		this.visitorScore = visitorScore;
+		this.coordinates = coordinates;
+	}
+	
 	public void setLocalTeam(Team localTeam) {
 		this.localTeam = localTeam;
 	}

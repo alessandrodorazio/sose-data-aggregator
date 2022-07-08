@@ -7,6 +7,14 @@ public class Team {
 	private int id;
 	private String name;
 	
+	public Team() {
+		
+	}
+	
+	public Team(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 	
 	public void setId(int id) {
 		this.id = id;

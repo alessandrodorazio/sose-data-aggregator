@@ -8,6 +8,17 @@ public class CompleteMatch {
 	private Match match;
 	private Bet bet;
 	private Weather weather;
+	
+	public CompleteMatch() {
+		
+	}
+	
+	public CompleteMatch(Match match, Bet bet, Weather weather) {
+		this.match = match;
+		this.bet = bet;
+		this.weather = weather;
+	}
+	
 	public Match getMatch() {
 		return match;
 	}

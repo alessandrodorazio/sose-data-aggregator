@@ -12,24 +12,26 @@ import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
 public class StartServiceAggregator {
 
 	public static void main(String[] args) {
-		startRest();
-		startSoap();
+		String restAddress = "http://localhost:8086/";
+		String soapAddress = "http://localhost:8096/aggregator";
+		startRest(restAddress);
+		startSoap(soapAddress);
 	}
 	
-	public static void startRest() {
+	public static void startRest(String address) {
 		JAXRSServerFactoryBean factoryBean = new JAXRSServerFactoryBean();
         factoryBean.setResourceClasses(ServiceRepository.class);
         factoryBean.setResourceProvider(new SingletonResourceProvider(new ServiceRepository()));
-        factoryBean.setAddress("http://localhost:8086/");
+        factoryBean.setAddress(address);
         Server server = factoryBean.create();
         System.out.println("Server ready...");
 	}
 	
-	public static void startSoap() {
+	public static void startSoap(String address) {
 		Endpoint ep = Endpoint.create(new ServiceRepository());
 		List<Handler> handlerChain = ep.getBinding().getHandlerChain();
 		ep.getBinding().setHandlerChain(handlerChain);
-		ep.publish("http://localhost:8096/");
+		ep.publish(address);
 		System.out.println("SOAP server ready...");
 	}
 

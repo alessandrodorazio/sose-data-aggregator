@@ -7,6 +7,16 @@ public class Weather {
 	private double temperature;
 	private String description;
 	
+	public Weather() {
+		
+	}
+	
+	public Weather(String name, double temperature, String description) {
+		this.name = name;
+		this.temperature = temperature;
+		this.description = description;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
