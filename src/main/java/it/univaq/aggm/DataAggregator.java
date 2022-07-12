@@ -94,7 +94,7 @@ public class DataAggregator {
 	}
 	
 	private static Document getFootballWeatherProsumerDocument() throws IOException, SAXException, ParserConfigurationException {
-		String url = "http://localhost:8083/football-weather/matches-with-weather";
+		String url = "http://localhost:8085/football-weather/matches-with-weather";
 		OkHttpClient client = new OkHttpClient();
 		Request request = new Request.Builder().url(url).get().build();
 		Response response = client.newCall(request).execute();
